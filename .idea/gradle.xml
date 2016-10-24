@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Controller" />
+            <option value="$PROJECT_DIR$/Model" />
+            <option value="$PROJECT_DIR$/View" />
+            <option value="$PROJECT_DIR$/httprequestbj" />
+            <option value="$PROJECT_DIR$/spotify-auth-beta23-noconnect-2.20b" />
+            <option value="$PROJECT_DIR$/spotify-player-beta23-noconnect-2.20b" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

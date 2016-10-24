@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Controller/Controller.iml" filepath="$PROJECT_DIR$/Controller/Controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Model/Model.iml" filepath="$PROJECT_DIR$/Model/Model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpotiShare.iml" filepath="$PROJECT_DIR$/SpotiShare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/View/View.iml" filepath="$PROJECT_DIR$/View/View.iml" />
+      <module fileurl="file://$PROJECT_DIR$/httprequestbj/httprequestbj.iml" filepath="$PROJECT_DIR$/httprequestbj/httprequestbj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spotify-auth-beta23-noconnect-2.20b/spotify-auth-beta23-noconnect-2.20b.iml" filepath="$PROJECT_DIR$/spotify-auth-beta23-noconnect-2.20b/spotify-auth-beta23-noconnect-2.20b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spotify-player-beta23-noconnect-2.20b/spotify-player-beta23-noconnect-2.20b.iml" filepath="$PROJECT_DIR$/spotify-player-beta23-noconnect-2.20b/spotify-player-beta23-noconnect-2.20b.iml" />
+    </modules>
+  </component>
+</project>
