@@ -33,13 +33,15 @@ public class MainActivity extends Activity {
     public void spotifySubmitButtonOnClick(View v) {
         final SpotifyLogin spotifyLogin = new SpotifyLogin(myActivity);
         spotifyLogin.execute();
+
+        MySpotifyPlayer.getMySpotifyPlayer().getMetadata();
+        SpotifyWebAPI webAPI = new SpotifyWebAPI(MySpotifyPlayer.OAuth);
+        webAPI.getMySpotifyProfile();
     }
 
     @OnClick(R.id.spotifyPlayButton)
     public void setSpotifyPlayButtonOnClick(View v){
-        MySpotifyPlayer.getMySpotifyPlayer().getMetadata();
-        SpotifyWebAPI webAPI = new SpotifyWebAPI(MySpotifyPlayer.OAuth);
-        webAPI.getMySpotifyProfile();
+
     }
 
 
