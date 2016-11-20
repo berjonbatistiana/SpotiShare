@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.spotishare.frey.controller.spotify.MySpotifyPlayer;
 import com.spotishare.frey.controller.spotify.SpotifyCredentials;
 import com.spotishare.frey.controller.spotify.SpotifyLogin;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
@@ -22,37 +23,18 @@ import butterknife.OnClick;
 
 public class MainActivity extends Activity {
 
-    public Activity myActivity = this;
 
-    @InjectView(R.id.spotifyPlayButton)
-    Button spotifyPlayButton;
-    @InjectView(R.id.spotifyPauseButton)
-    Button spotifyPauseButton;
-
-    @OnClick(R.id.spotifySubmitButton)
-    public void spotifySubmitButtonOnClick(View v) {
-        final SpotifyLogin spotifyLogin = new SpotifyLogin(myActivity);
+    @OnClick(R.id.spotifyLoginButton)
+    public void spotifyLoginButtonOnClick(View v) {
+        final SpotifyLogin spotifyLogin = new SpotifyLogin(this);
         spotifyLogin.execute();
-
-        MySpotifyPlayer.getMySpotifyPlayer().getMetadata();
-        SpotifyWebAPI webAPI = new SpotifyWebAPI(MySpotifyPlayer.OAuth);
-        webAPI.getMySpotifyProfile();
     }
-
-    @OnClick(R.id.spotifyPlayButton)
-    public void setSpotifyPlayButtonOnClick(View v){
-
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
-
-        spotifyPauseButton.setEnabled(false);
-        spotifyPlayButton.setEnabled(false);
     }
 
     @Override
@@ -69,18 +51,17 @@ public class MainActivity extends Activity {
                     public void onInitialized(SpotifyPlayer spotifyPlayer) {
 
                         try {
-                            new MySpotifyPlayer(spotifyPlayer, myActivity){
+                            new MySpotifyPlayer(spotifyPlayer){
                                 @Override
                                 public void onLoggedIn() {
                                     super.onLoggedIn();
-                                    spotifyPlayButton.setEnabled(true);
-                                    spotifyPauseButton.setEnabled(true);
+                                    startBroadcastListenActivity();
                                 }
                             };
 
                         } catch (MySpotifyPlayer.PlayerAlreadyExistsException e) {
-                            MySpotifyPlayer.setActiveActivity(myActivity);
                             e.printStackTrace();
+                            startBroadcastListenActivity();
                         }
                     }
 
@@ -93,10 +74,14 @@ public class MainActivity extends Activity {
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        MySpotifyPlayer.getMySpotifyPlayer().destroy();
+    private void startBroadcastListenActivity(){
+        Intent broadcastListenIntent = new Intent(this, BroadcastListenActivity.class);
+        this.startActivity(broadcastListenIntent);
+        this.finish();
+
+        MySpotifyPlayer.getMySpotifyPlayer().getMetadata();
+        SpotifyWebAPI webAPI = new SpotifyWebAPI(MySpotifyPlayer.OAuth);
+        webAPI.getMySpotifyProfile();
     }
 }
 
