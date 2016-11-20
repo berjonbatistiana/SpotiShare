@@ -1,14 +1,29 @@
 package com.spotishare.frey.view;
 
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Switch;
 
 import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnCheckedChanged;
 
 public class BroadcastListenActivity extends AppCompatActivity {
 
-    public BroadcastListenActivity(){
+
+    @InjectView(R.id.switchBroadcastListen)
+    Switch switchBroadcastListen;
+
+    @OnCheckedChanged(R.id.switchBroadcastListen)
+    public void swtichBroadcastListenOnCheckedChanged(){
+
+        switchBroadcastListen.setText(switchBroadcastListen.isChecked()?
+                getResources().getString(R.string.string_broadcaster) :
+                getResources().getString(R.string.string_listener));
+    }
+
+    public BroadcastListenActivity() {
 
     }
 

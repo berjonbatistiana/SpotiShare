@@ -1,6 +1,7 @@
 package com.spotishare.frey.view;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ import butterknife.OnClick;
 
 public class MainActivity extends Activity {
 
+    private ProgressDialog spotifyLoginProgressDialog;
 
     @OnClick(R.id.spotifyLoginButton)
     public void spotifyLoginButtonOnClick(View v) {

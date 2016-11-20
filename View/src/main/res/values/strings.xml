@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SpotiShare</string>
+    <string name="string_listener">Listener</string>
+    <string name="string_broadcaster">Broadcaster</string>
+    <string name="login">Login</string>
+    <string name="spotishare">SpotiShare</string>
 </resources>
